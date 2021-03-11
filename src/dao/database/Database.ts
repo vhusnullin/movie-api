@@ -24,7 +24,7 @@ export class Database {
 	readonly userActivity = Mongoose.model<UserActivityDocument>('userActivity', userActivitySchema);
 
 	init(connectionString: string): void {
-		Mongoose.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: true});
+		Mongoose.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 		Mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 		Mongoose.connection.on('open', () => console.log('connected to database'));
 	}

@@ -3,14 +3,14 @@ import { Database } from './Database';
 import { DatabaseConfig } from './DatabaseConfig';
 
 @Injectable()
-export class SessionFactory {
+export class DatabaseFactory {
 
 	database: Database;
 
 	constructor(private readonly config: DatabaseConfig) {
 	}
 
-	getSession(): Database {
+	getDatabase(): Database {
 		if (!this.database) {
 			this.database = new Database();
 			this.database.init(this.config.connectionString);
