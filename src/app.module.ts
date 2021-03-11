@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MovieController } from './controllers/MovieController';
 import { AuthController } from './controllers/AuthController';
 import { AppContext } from './controllers/helpers/AppContext';
-import { SessionFactory } from './dao/database/SessionFactory';
+import { DatabaseFactory } from './dao/database/DatabaseFactory';
 import { MovieDao } from './dao/MovieDao';
 import { UserDao } from './dao/UserDao';
 import { UserActivityDao } from './dao/UserActivityDao';
@@ -28,7 +28,7 @@ import { OmdbConfig } from './services/omdb/OmdbConfig';
 		ConfigFactory,
 		AppContext,
 		MovieService, UserService,
-		MovieDao, UserDao, UserActivityDao, SessionFactory,
+		MovieDao, UserDao, UserActivityDao, DatabaseFactory,
 		MovieMapper, UserMapper, UserActivityMapper,
 		OmdbProxy, JsonApi, JwtHelper, DateFormat, RoleHelper,
 		{
