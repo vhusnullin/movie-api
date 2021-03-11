@@ -1,0 +1,19 @@
+{
+	"files.exclude": {
+		"**/.git": true,
+		"active.log": true,
+		".gitignore": true,
+		"src/**/*.js": true,
+		"src/**/*.js.map": true,
+		"package-lock.json": true,
+		"node_modules": true,
+		"dist": true,
+		"public": true,
+		"logs": true,
+		"obj": true,
+		"deployment": true
+	},
+	"editor.renderWhitespace": "boundary",
+	"editor.tabSize": 3,
+	"editor.insertSpaces": false
+}
