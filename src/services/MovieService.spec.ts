@@ -68,7 +68,7 @@ describe('MovieService', () => {
 			let omdbProxy_findByTitle = jest.spyOn(omdbProxy, 'findByTitle').mockReturnValueOnce(Promise.resolve(null));
 
 			let targetFunc = async () => await target.save(user, movie);
-			await expect(targetFunc).rejects.toBeInstanceOf(AppException);
+			await expect(targetFunc).rejects.toThrowError('Omdb data is not found');
 
 			expect(roleHelper_isPremium).toBeCalledWith(user);
 			expect(userActivityDao_findByUserId).toBeCalledWith(1111);
@@ -90,7 +90,7 @@ describe('MovieService', () => {
 			let movieDao_findByImdb = jest.spyOn(movieDao, 'findByImdb').mockReturnValueOnce(Promise.resolve(movieDomain));
 
 			let targetFunc = async () => await target.save(user, movie);
-			await expect(targetFunc).rejects.toBeInstanceOf(AppException);
+			await expect(targetFunc).rejects.toThrowError('Movie already exists');
 
 			expect(roleHelper_isPremium).toBeCalledWith(user);
 			expect(userActivityDao_findByUserId).toBeCalledWith(1111);
