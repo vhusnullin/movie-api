@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+  mongo-server:
+    image: mongo
+    command: --serviceExecutor adaptive
+  program:
+    build: .
+    ports:
+      - 8080:${APP_PORT}
+    environment:
+      JWT_ISSUER: https://www.netguru.com/
+      JWT_EXPIRESIN: 1800
+      JWT_SECRET: TOP-SECRET-COMPANY
+      DB_CONNECTION: mongodb://mongo-server/movie-api
+      APP_PORT: ${APP_PORT}
